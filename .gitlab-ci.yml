@@ -1,0 +1,15 @@
+image: docker.leyantech.com/lain-python:2.7.13-1
+
+job:reinstall:
+    only:
+        - schedules
+    tags:
+        - docker
+    before_script:
+        - rm -f .python-version
+        - pip install -U pip
+        - pip install -r requirements.txt
+    script:
+        - python generate.py $GITLAB_USER_EMAIL $DNS_TOKEN $CDN_ACCESS_ID $CDN_ACCESS_SECRET run.sh
+        - chmod +x run.sh
+        - bash run.sh
