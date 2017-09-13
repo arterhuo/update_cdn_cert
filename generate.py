@@ -10,8 +10,8 @@ def write_config_ini(email, token, access_key_id, access_key_secret, output):
     content = [
         ("certbot_dns_dnspod:dns_dnspod_email", email),
         ("certbot_dns_dnspod:dns_dnspod_api_token", token),
-        ("certbot_alicdn:aliyun_cdn_access_key_id", access_key_id),
-        ("certbot_alicdn:aliyun_cdn_access_key_secret", access_key_secret)
+        ("certbot_aliyun_cdn:aliyun_cdn_access_key_id", access_key_id),
+        ("certbot_aliyun_cdn:aliyun_cdn_access_key_secret", access_key_secret)
     ]
     for key, val in content:
         output.write("{0} = '{1}'\n".format(key, val))
