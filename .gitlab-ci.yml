@@ -3,6 +3,7 @@ image: docker.leyantech.com/lain-python:2.7.13-1
 job:reinstall:
     only:
         - schedules
+        - manual
     tags:
         - docker
     before_script:

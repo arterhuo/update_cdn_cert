@@ -17,16 +17,17 @@ def write_config_ini(email, token, access_key_id, access_key_secret, output):
         output.write("{0} = '{1}'\n".format(key, val))
 
 
-def bash_for_domain(config, domain):
+def bash_for_domain(email, config, domain):
     return (
         "certbot run "
+        "--email {email} --agree-tos "
         "--authenticator certbot-dns-dnspod:dns-dnspod "
         "--certbot-dns-dnspod:dns-dnspod-credentials {config} "
         "--reinstall --redirect "
         "--installer certbot-aliyun-cdn:aliyun-cdn "
         "--certbot-aliyun-cdn:aliyun-cdn-credentials {config} "
         "--domain {domain}\n"
-    ).format(config=config, domain=domain)
+    ).format(email=email, config=config, domain=domain)
 
 
 @click.command()
@@ -46,7 +47,7 @@ def generate(email, token, access_key_id, access_key_secret, output):
     cdn.set_credentials(access_key_id, access_key_secret)
     for domain in cdn.list_domains():
         if cdn.check_expiratoin(domain):
-            output.write(bash_for_domain(tmp.name, domain))
+            output.write(bash_for_domain(email, tmp.name, domain))
 
 
 if __name__ == "__main__":
