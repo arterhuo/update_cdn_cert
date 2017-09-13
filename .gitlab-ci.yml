@@ -1,9 +1,8 @@
 image: docker.leyantech.com/lain-python:2.7.13-1
 
-job:reinstall:
+job:reinstall: &job
     only:
         - schedules
-        - manual
     tags:
         - docker
     before_script:
@@ -14,3 +13,9 @@ job:reinstall:
         - python generate.py $GITLAB_USER_EMAIL $DNS_TOKEN $CDN_ACCESS_ID $CDN_ACCESS_SECRET run.sh
         - chmod +x run.sh
         - bash run.sh
+
+job:manual:
+    <<: *job
+    only:
+        - master
+    when: manual
