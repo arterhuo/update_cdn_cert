@@ -1,4 +1,5 @@
-image: docker.leyantech.com/lain-python:2.7.13-1
+image: registry.leyantech.com/lain/python:2.7.14
+
 
 job:reinstall: &job
     only:
@@ -6,9 +7,9 @@ job:reinstall: &job
     tags:
         - docker
     before_script:
-        - rm -f .python-version
-        - pip install -U pip
-        - pip install -r requirements.txt
+        - pip install pip
+        - pip install -U pipenv
+        - pipenv install --deploy
     script:
         - python generate.py $GITLAB_USER_EMAIL $DNS_TOKEN $CDN_ACCESS_ID $CDN_ACCESS_SECRET run.sh
         - chmod +x run.sh
