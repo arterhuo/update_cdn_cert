@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8448122a06c4967cd2ac22e23e73c0716bf4f56c85263cd1c79d80a95b2dbd28"
+            "sha256": "8fdbd54426cbf8f2159a845751d4137353c18e63b4e2f5f996e8f34c375c7480"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -41,6 +41,7 @@
                 "sha256:9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a",
                 "sha256:f0b0e4eba956de51238e17573b7087e852dfe9854afd2e9c873f73fc0ca0a6dd"
             ],
+            "markers": "python_version == '2.7'",
             "version": "==1.5"
         },
         "certbot": {
@@ -271,6 +272,7 @@
                 "sha256:99dcfdaaeb17caf6e526f32b6a7b780461512ab3f1d992187801694cba42770c",
                 "sha256:a84b8c9ab6239b578f22d1c21d51b696dcfe004032bb80ea832398d6909d7279"
             ],
+            "index": "pypi",
             "version": "==2.20.0"
         },
         "requests-aliyun": {
