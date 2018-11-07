@@ -1,3 +1,0 @@
-certbot-aliyun-cdn
-certbot-dns-dnspod
-click
