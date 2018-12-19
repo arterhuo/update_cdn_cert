@@ -10,7 +10,7 @@ job:reinstall: &job
         - pip install pip
         - pip install -U pipenv
         - pipenv install --deploy
-        - pipenv run pip install cryptography idna pyopenssl
+        - pipenv run pip install cryptography "idna<2.7" pyopenssl
     script:
         - pipenv run python generate.py $GITLAB_USER_EMAIL $DNS_TOKEN $CDN_ACCESS_ID $CDN_ACCESS_SECRET run.sh
         - chmod +x run.sh
