@@ -12,7 +12,6 @@ job:reinstall: &job
         - pipenv install --deploy
     script:
         - pipenv run python generate.py $GITLAB_USER_EMAIL $DNS_TOKEN $CDN_ACCESS_ID $CDN_ACCESS_SECRET run.sh
-        - chmod +x run.sh
         - pipenv run bash run.sh
 
 job:manual:

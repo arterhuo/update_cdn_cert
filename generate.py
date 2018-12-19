@@ -20,6 +20,7 @@ def write_config_ini(email, token, access_key_id, access_key_secret, output):
 def bash_for_domain(email, config, domain):
     return (
         "certbot run "
+        "--non-interactive "
         "--email {email} --agree-tos "
         "--authenticator certbot-dns-dnspod:dns-dnspod "
         "--certbot-dns-dnspod:dns-dnspod-credentials {config} "
