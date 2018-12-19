@@ -4,7 +4,7 @@
 ### 安装
 
 ```
-pip install -r requirements.txt
+pipenv install --deploy
 ```
 
 ### 生成bash命令
