@@ -8,6 +8,9 @@ certbot-aliyun-cdn = ">=0.1.0"
 certbot-dns-dnspod = "*"
 click = "*"
 requests = {extras = ["security"], version = "*"}
+cryptography = {extras = ["security"], version = "*"}
+idna = {extras = ["security"], version = "*"}
+pyopenssl = {extras = ["security"], version = "*"}
 
 [dev-packages]
 
