@@ -3,7 +3,20 @@
 import click
 import tempfile
 
-from certbot_aliyun_cdn.client import CDN
+import arrow
+from datetime import datetime
+
+from certbot_aliyun_cdn.client import CDN as certbot_cdn
+
+class CDN(certbot_cdn):
+    def check_expiratoin(self, domain, leeway=25):
+       info = self.call("DescribeDomainCertificateInfo", DomainName=domain)
+       certexpiretime=info.get("CertInfos").get("CertInfo")[0].get("CertExpireTime")
+       now = arrow.now()
+       expires_in = (arrow.get(datetime.strptime(certexpiretime,"%Y-%m-%dT%H:%M:%SZ")) - now).days
+       if expires_in <= leeway:
+           print(info)
+       return expires_in <= leeway
 
 
 def write_config_ini(email, token, access_key_id, access_key_secret, output):
