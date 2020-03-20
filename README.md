@@ -21,3 +21,15 @@ python generate.py $DNSPOD_EMAIL $DNSPOD_TOKEN $CDN_ACCESS_ID $CDN_ACCESS_TOKEN 
 ```
 bash $BASH_OUTPUT
 ```
+
+## 检查需要删除的不用的cert
+
+```
+pipenv run python clean_unused_cdn_cert.py --access_key_id $CDN_ACCESS_ID --access_key_secret $CDN_ACCESS_SECRET
+```
+
+## 执行删除不用的cert
+
+```
+pipenv run python clean_unused_cdn_cert.py --access_key_id $CDN_ACCESS_ID --access_key_secret $CDN_ACCESS_SECRET --do_delete True
+```

@@ -1,5 +1,5 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://mirrors.aliyun.com/pypi/simple/"
 verify_ssl = true
 name = "pypi"
 
@@ -7,12 +7,14 @@ name = "pypi"
 certbot-aliyun-cdn = ">=0.1.0"
 certbot-dns-dnspod = "*"
 click = "*"
-requests = {extras = ["security"], version = "*"}
-cryptography = {extras = ["security"], version = "*"}
-idna = {extras = ["security"], version = "*"}
-pyopenssl = {extras = ["security"], version = "*"}
+aliyun-python-sdk-core = {version = "*"}
+requests = {extras = ["security"],version = "*"}
+cryptography = {extras = ["security"],version = "*"}
+idna = {extras = ["security"],version = "*"}
+pyopenssl = {extras = ["security"],version = "*"}
 
 [dev-packages]
+urllib3 = ">=1.24.2"
 
 [requires]
 python_version = "2.7"
