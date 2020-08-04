@@ -1,4 +1,4 @@
-image: registry.leyantech.com/lain/python:2.7.14
+image: registry.xxx.com/lain/python:2.7.14
 
 
 job:reinstall: &job
